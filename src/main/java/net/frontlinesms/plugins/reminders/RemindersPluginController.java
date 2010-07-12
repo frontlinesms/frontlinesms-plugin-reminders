@@ -41,7 +41,7 @@ import org.springframework.context.ApplicationContext;
 @PluginControllerProperties(name = "Reminders Plugin (beta)", iconPath = "/icons/big_reminders.png", springConfigLocation = "classpath:net/frontlinesms/plugins/reminders/reminders-spring-hibernate.xml", hibernateConfigPath = "classpath:net/frontlinesms/plugins/reminders/reminders.hibernate.cfg.xml")
 public class RemindersPluginController extends BasePluginController {
 
-	private Logger log = FrontlineUtils.getLogger(RemindersPluginController.class);
+	private Logger log = FrontlineUtils.getLogger(this.getClass());
 	
 	private ApplicationContext applicationContext;
 	private FrontlineSMS frontlineController;
