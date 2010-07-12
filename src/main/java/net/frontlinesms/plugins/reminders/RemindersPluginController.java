@@ -41,7 +41,7 @@ import org.springframework.context.ApplicationContext;
 @PluginControllerProperties(name = "Reminders Plugin (beta)", iconPath = "/icons/big_reminders.png", springConfigLocation = "classpath:net/frontlinesms/plugins/reminders/reminders-spring-hibernate.xml", hibernateConfigPath = "classpath:net/frontlinesms/plugins/reminders/reminders.hibernate.cfg.xml")
 public class RemindersPluginController extends BasePluginController {
 
-	private static Logger LOG = FrontlineUtils.getLogger(RemindersPluginController.class);
+	private Logger log = FrontlineUtils.getLogger(RemindersPluginController.class);
 	
 	private ApplicationContext applicationContext;
 	private FrontlineSMS frontlineController;
@@ -49,7 +49,7 @@ public class RemindersPluginController extends BasePluginController {
 	private ReminderDao reminderDao;
 	
 	protected Object initThinletTab(UiGeneratorController uiController) {
-		LOG.debug("initThinletTab");
+		log.debug("initThinletTab");
 		this.tabController = new RemindersThinletTabController(this, uiController, applicationContext);
 		this.tabController.setFrontline(this.frontlineController);
 		Reminder.setCallback(this.tabController);
@@ -57,14 +57,14 @@ public class RemindersPluginController extends BasePluginController {
 	}
 
 	public void deinit() {
-		LOG.debug("deinit");
+		log.debug("deinit");
 		this.tabController.cancelAllReminders();
 	}
 
 	public void init(FrontlineSMS frontlineController, ApplicationContext applicationContext) throws PluginInitialisationException {
 		//Uncomment the following line to enable basic logging to console
 		//BasicConfigurator.configure();
-		LOG.debug("init");
+		log.debug("init");
 		this.applicationContext = applicationContext;
 		this.frontlineController = frontlineController;
 		this.reminderDao = (ReminderDao) applicationContext.getBean("reminderDao");
