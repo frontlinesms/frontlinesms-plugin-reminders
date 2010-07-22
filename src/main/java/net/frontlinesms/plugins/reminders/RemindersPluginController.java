@@ -58,7 +58,9 @@ public class RemindersPluginController extends BasePluginController {
 
 	public void deinit() {
 		log.debug("deinit");
-		this.tabController.cancelAllReminders();
+		if (this.tabController != null) { // Why would tab controller be non-null?
+			this.tabController.cancelAllReminders();
+		}
 	}
 
 	public void init(FrontlineSMS frontlineController, ApplicationContext applicationContext) throws PluginInitialisationException {
