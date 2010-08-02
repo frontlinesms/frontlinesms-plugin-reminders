@@ -202,7 +202,7 @@ public class RemindersThinletTabController extends BasePluginThinletTabControlle
 		LOG.debug("sendReminder: " + reminder);	
 		if (reminder != null) {
 			if (reminder.getType() == Reminder.Type.EMAIL) {
-				Collection<EmailAccount> emailAccounts = this.emailAccountDao.getAllEmailAccounts();
+				Collection<EmailAccount> emailAccounts = this.emailAccountDao.getSendingEmailAccounts();
 				if (emailAccounts.size() > 0) {
 					for (String contactName : reminder.getRecipientsArray()) {
 						LOG.trace("Sending EMAIL");
