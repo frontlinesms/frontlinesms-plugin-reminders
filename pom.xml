@@ -3,7 +3,7 @@
 	<groupId>net.frontlinesms.plugins</groupId>
 	<artifactId>frontlinesms-plugin-reminders</artifactId>
 	<name>FrontlineSMS Reminders plugin</name>
-	<version>0.01.06-SNAPSHOT</version>
+	<version>0.01.08-SNAPSHOT</version>
 	<description>Reminders plugin for FrontlineSMS</description>
 	<licenses>
 		<license>
