@@ -24,9 +24,11 @@ import net.frontlinesms.FrontlineUtils;
 import net.frontlinesms.plugins.BasePluginController;
 import net.frontlinesms.plugins.PluginControllerProperties;
 import net.frontlinesms.plugins.PluginInitialisationException;
+import net.frontlinesms.plugins.PluginSettingsController;
 import net.frontlinesms.plugins.reminders.data.domain.Reminder;
 import net.frontlinesms.plugins.reminders.data.repository.ReminderDao;
 import net.frontlinesms.ui.UiGeneratorController;
+import net.frontlinesms.ui.i18n.InternationalisationUtils;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
@@ -88,5 +90,18 @@ public class RemindersPluginController extends BasePluginController {
 		for (Reminder reminder : this.reminderDao.getPendingReminders()) {
 			reminder.scheduleReminder();
 		}
+	}
+
+	public String getTitle() {
+		return this.getName(InternationalisationUtils.getCurrentLocale());
+	}
+	
+	public Object getRootSettingsNode(UiGeneratorController uiController) {
+		Object rootSettingsNode = uiController.createNode(getTitle(), getTitle());
+		return rootSettingsNode;
+	}
+	
+	public PluginSettingsController getSettingsController(UiGeneratorController uiController) {
+		return new RemindersSettingsController(this, uiController);
 	}
 }
