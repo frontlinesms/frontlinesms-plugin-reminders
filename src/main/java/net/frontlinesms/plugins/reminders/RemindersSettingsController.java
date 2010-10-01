@@ -1,8 +1,10 @@
 package net.frontlinesms.plugins.reminders;
 
 import net.frontlinesms.plugins.PluginSettingsController;
+import net.frontlinesms.settings.FrontlineValidationMessage;
 import net.frontlinesms.ui.ThinletUiEventHandler;
 import net.frontlinesms.ui.UiGeneratorController;
+import net.frontlinesms.ui.UiSettingsSectionHandler;
 import net.frontlinesms.ui.i18n.InternationalisationUtils;
 
 public class RemindersSettingsController implements ThinletUiEventHandler, PluginSettingsController {
@@ -49,9 +51,22 @@ public class RemindersSettingsController implements ThinletUiEventHandler, Plugi
 		return null;
 	}
 	
+	public FrontlineValidationMessage validateFields() {
+		return null;
+	}
+	
 	enum HttpTriggerSettingsSections {
 		APPEARANCE,
 		TEST
+	}
+
+	public UiSettingsSectionHandler getHandlerForSection(String section) {
+		return null;
+	}
+
+
+	public UiSettingsSectionHandler getRootPanelHandler() {
+		return null;
 	}
 
 }
