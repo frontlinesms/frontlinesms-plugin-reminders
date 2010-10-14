@@ -96,12 +96,7 @@ public class RemindersPluginController extends BasePluginController {
 		return this.getName(InternationalisationUtils.getCurrentLocale());
 	}
 	
-	public Object getRootSettingsNode(UiGeneratorController uiController) {
-		Object rootSettingsNode = uiController.createNode(getTitle(), getTitle());
-		return rootSettingsNode;
-	}
-	
 	public PluginSettingsController getSettingsController(UiGeneratorController uiController) {
-		return new RemindersSettingsController(this, uiController);
+		return null;
 	}
 }
