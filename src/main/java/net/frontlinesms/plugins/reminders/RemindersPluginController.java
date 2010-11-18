@@ -95,8 +95,4 @@ public class RemindersPluginController extends BasePluginController {
 	public String getTitle() {
 		return this.getName(InternationalisationUtils.getCurrentLocale());
 	}
-	
-	public PluginSettingsController getSettingsController(UiGeneratorController uiController) {
-		return null;
-	}
 }
