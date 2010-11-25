@@ -51,7 +51,7 @@ public class OnceReminder extends Reminder {
 	
 	@Override
 	public String getOccurrenceLabel() {
-		return InternationalisationUtils.getI18NString(RemindersConstants.ONCE);
+		return InternationalisationUtils.getI18nString(RemindersConstants.ONCE);
 	}
 	
 	@Override

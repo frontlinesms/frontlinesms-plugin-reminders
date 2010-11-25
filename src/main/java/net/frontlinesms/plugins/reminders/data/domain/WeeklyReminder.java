@@ -51,7 +51,7 @@ public class WeeklyReminder extends Reminder {
 	
 	@Override
 	public String getOccurrenceLabel() {
-		return InternationalisationUtils.getI18NString(RemindersConstants.WEEKLY);
+		return InternationalisationUtils.getI18nString(RemindersConstants.WEEKLY);
 	}
 	
 	@Override

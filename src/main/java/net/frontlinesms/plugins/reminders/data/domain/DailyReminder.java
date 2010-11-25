@@ -51,7 +51,7 @@ public class DailyReminder extends Reminder {
 	
 	@Override
 	public String getOccurrenceLabel() {
-		return InternationalisationUtils.getI18NString(RemindersConstants.DAILY);
+		return InternationalisationUtils.getI18nString(RemindersConstants.DAILY);
 	}
 	
 	@Override

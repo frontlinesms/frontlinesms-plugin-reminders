@@ -44,7 +44,7 @@ public class MonthlyReminder extends Reminder {
 	
 	@Override
 	public String getOccurrenceLabel() {
-		return InternationalisationUtils.getI18NString(RemindersConstants.MONTHLY);
+		return InternationalisationUtils.getI18nString(RemindersConstants.MONTHLY);
 	}
 	
 	@Override

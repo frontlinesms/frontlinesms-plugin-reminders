@@ -51,7 +51,7 @@ public class FridaysReminder extends Reminder {
 	
 	@Override
 	public String getOccurrenceLabel() {
-		return InternationalisationUtils.getI18NString(RemindersConstants.FRIDAYS);
+		return InternationalisationUtils.getI18nString(RemindersConstants.FRIDAYS);
 	}
 	
 	@Override

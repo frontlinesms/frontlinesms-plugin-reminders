@@ -51,7 +51,7 @@ public class HourlyReminder extends Reminder {
 	
 	@Override
 	public String getOccurrenceLabel() {
-		return InternationalisationUtils.getI18NString(RemindersConstants.HOURLY);
+		return InternationalisationUtils.getI18nString(RemindersConstants.HOURLY);
 	}
 	
 	@Override
