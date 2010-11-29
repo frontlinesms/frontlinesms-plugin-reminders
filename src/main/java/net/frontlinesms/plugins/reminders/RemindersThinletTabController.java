@@ -27,7 +27,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-import java.awt.EventQueue;
 import java.text.DateFormat;
 
 import net.frontlinesms.EmailServerHandler;
@@ -179,14 +178,11 @@ public class RemindersThinletTabController extends BasePluginThinletTabControlle
 		} else if (notification instanceof DatabaseEntityNotification<?>) {
 			Object entity = ((DatabaseEntityNotification<?>) notification).getDatabaseEntity();
 			if (entity instanceof EmailAccount && !((EmailAccount) entity).isForReceiving()) {
-				FrontlineUiUpateJob updateJob = new FrontlineUiUpateJob() {
-					
+				new FrontlineUiUpateJob() {
 					public void run() {
 						loadEmailAccounts();
 					}
-				};
-				
-				EventQueue.invokeLater(updateJob);
+				}.execute();
 			}
 		}
 	}

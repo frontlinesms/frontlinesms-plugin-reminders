@@ -24,7 +24,6 @@ import net.frontlinesms.FrontlineUtils;
 import net.frontlinesms.plugins.BasePluginController;
 import net.frontlinesms.plugins.PluginControllerProperties;
 import net.frontlinesms.plugins.PluginInitialisationException;
-import net.frontlinesms.plugins.PluginSettingsController;
 import net.frontlinesms.plugins.reminders.data.domain.Reminder;
 import net.frontlinesms.plugins.reminders.data.repository.ReminderDao;
 import net.frontlinesms.ui.UiGeneratorController;
