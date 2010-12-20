@@ -197,7 +197,8 @@ public class RemindersDialogHandler implements ThinletUiEventHandler, PagedCompo
 			this.ui.setSelected(this.checkboxMessage, reminder.getType() == Reminder.Type.MESSAGE);
 			this.ui.setText(this.textSubject, reminder.getSubject());
 			this.ui.setText(this.textMessage, reminder.getContent());
-			this.ui.setText(this.dialogReminders, InternationalisationUtils.getI18NString(RemindersConstants.EDIT_REMINDER));
+			this.ui.setText(this.dialogReminders, InternationalisationUtils.getI18nString(RemindersConstants.EDIT_REMINDER));
+			this.ui.setIcon(this.dialogReminders, "/icons/reminders_edit.png");
 		}
 		else {
 			Calendar now = Calendar.getInstance();
@@ -215,7 +216,8 @@ public class RemindersDialogHandler implements ThinletUiEventHandler, PagedCompo
 					break;
 				}
 			}
-			this.ui.setText(this.dialogReminders, InternationalisationUtils.getI18NString(RemindersConstants.CREATE_REMINDER));
+			this.ui.setText(this.dialogReminders, InternationalisationUtils.getI18nString(RemindersConstants.CREATE_REMINDER));
+			this.ui.setIcon(this.dialogReminders, "/icons/reminders_add.png");
 		}
 	}
 	
@@ -270,25 +272,25 @@ public class RemindersDialogHandler implements ThinletUiEventHandler, PagedCompo
 			String subject = (type == Reminder.Type.EMAIL) ? this.ui.getText(this.textSubject) : "";
 			String message = this.ui.getText(this.textMessage);
 			if (type == Type.EMAIL && this.emailAccountDao.getAllEmailAccounts().size() == 0) {
-				this.ui.alert(InternationalisationUtils.getI18NString(RemindersConstants.MISSING_EMAIL_ACCOUNT));
+				this.ui.alert(InternationalisationUtils.getI18nString(RemindersConstants.MISSING_EMAIL_ACCOUNT));
 			}
 			else if (startDate == 0) {
-				this.ui.alert(InternationalisationUtils.getI18NString(RemindersConstants.MISSING_START_DATE));
+				this.ui.alert(InternationalisationUtils.getI18nString(RemindersConstants.MISSING_START_DATE));
 			}
 			else if (OnceReminder.isSatisfiedBy(occurrence) == false && endDate == 0) {
-				this.ui.alert(InternationalisationUtils.getI18NString(RemindersConstants.MISSING_END_DATE));
+				this.ui.alert(InternationalisationUtils.getI18nString(RemindersConstants.MISSING_END_DATE));
 			}
 			else if (OnceReminder.isSatisfiedBy(occurrence) == false && startDate > endDate) {
-				this.ui.alert(InternationalisationUtils.getI18NString(RemindersConstants.MISSING_DATE_RANGE));
+				this.ui.alert(InternationalisationUtils.getI18nString(RemindersConstants.MISSING_DATE_RANGE));
 			}
 			else if (recipients.length() == 0) {
-				this.ui.alert(InternationalisationUtils.getI18NString(RemindersConstants.MISSING_RECIPIENT));
+				this.ui.alert(InternationalisationUtils.getI18nString(RemindersConstants.MISSING_RECIPIENT));
 			}
 			else if (type == Type.EMAIL && subject.isEmpty()) {
-				this.ui.alert(InternationalisationUtils.getI18NString(RemindersConstants.MISSING_SUBJECT));
+				this.ui.alert(InternationalisationUtils.getI18nString(RemindersConstants.MISSING_SUBJECT));
 			}
 			else if (message.isEmpty()) {
-				this.ui.alert(InternationalisationUtils.getI18NString(RemindersConstants.MISSING_MESSAGE));
+				this.ui.alert(InternationalisationUtils.getI18nString(RemindersConstants.MISSING_MESSAGE));
 			}
 			else {
 				Reminder reminder = this.ui.getAttachedObject(dialog, Reminder.class);
@@ -305,10 +307,10 @@ public class RemindersDialogHandler implements ThinletUiEventHandler, PagedCompo
 					reminder.setStatus(Reminder.Status.PENDING);
 					this.reminderDao.updateReminder(reminder);
 					if (type == Reminder.Type.EMAIL) {
-						this.ui.setStatus(InternationalisationUtils.getI18NString(RemindersConstants.EMAIL_REMINDER_UPDATED));
+						this.ui.setStatus(InternationalisationUtils.getI18nString(RemindersConstants.EMAIL_REMINDER_UPDATED));
 					}
 					else {
-						this.ui.setStatus(InternationalisationUtils.getI18NString(RemindersConstants.SMS_REMINDER_UPDATED));
+						this.ui.setStatus(InternationalisationUtils.getI18nString(RemindersConstants.SMS_REMINDER_UPDATED));
 					}	
 				}
 				else {
@@ -316,10 +318,10 @@ public class RemindersDialogHandler implements ThinletUiEventHandler, PagedCompo
 					reminder.setStatus(Reminder.Status.PENDING);
 					this.reminderDao.saveReminder(reminder);
 					if (type == Reminder.Type.EMAIL) {
-						this.ui.setStatus(InternationalisationUtils.getI18NString(RemindersConstants.EMAIL_REMINDER_CREATED));
+						this.ui.setStatus(InternationalisationUtils.getI18nString(RemindersConstants.EMAIL_REMINDER_CREATED));
 					}
 					else {
-						this.ui.setStatus(InternationalisationUtils.getI18NString(RemindersConstants.SMS_REMINDER_CREATED));
+						this.ui.setStatus(InternationalisationUtils.getI18nString(RemindersConstants.SMS_REMINDER_CREATED));
 					}
 				}
 				reminder.scheduleReminder();

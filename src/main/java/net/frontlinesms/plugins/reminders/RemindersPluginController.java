@@ -27,6 +27,7 @@ import net.frontlinesms.plugins.PluginInitialisationException;
 import net.frontlinesms.plugins.reminders.data.domain.Reminder;
 import net.frontlinesms.plugins.reminders.data.repository.ReminderDao;
 import net.frontlinesms.ui.UiGeneratorController;
+import net.frontlinesms.ui.i18n.InternationalisationUtils;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
@@ -38,7 +39,7 @@ import org.springframework.context.ApplicationContext;
  * see {@link "http://www.frontlinesms.net"} for more details. 
  * copyright owned by Kiwanja.net
  */
-@PluginControllerProperties(name = "Reminders Plugin (Beta)", i18nKey = "plugins.reminders.name", iconPath = "/icons/date_start.png", springConfigLocation = "classpath:net/frontlinesms/plugins/reminders/reminders-spring-hibernate.xml", hibernateConfigPath = "classpath:net/frontlinesms/plugins/reminders/reminders.hibernate.cfg.xml")
+@PluginControllerProperties(name = "Reminders (Beta)", i18nKey = "plugins.reminders.name", iconPath = "/icons/date_start.png", springConfigLocation = "classpath:net/frontlinesms/plugins/reminders/reminders-spring-hibernate.xml", hibernateConfigPath = "classpath:net/frontlinesms/plugins/reminders/reminders.hibernate.cfg.xml")
 public class RemindersPluginController extends BasePluginController {
 
 	private Logger log = FrontlineUtils.getLogger(this.getClass());
@@ -88,5 +89,9 @@ public class RemindersPluginController extends BasePluginController {
 		for (Reminder reminder : this.reminderDao.getPendingReminders()) {
 			reminder.scheduleReminder();
 		}
+	}
+
+	public String getTitle() {
+		return this.getName(InternationalisationUtils.getCurrentLocale());
 	}
 }

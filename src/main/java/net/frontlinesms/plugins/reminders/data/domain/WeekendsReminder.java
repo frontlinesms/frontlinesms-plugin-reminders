@@ -52,7 +52,7 @@ public class WeekendsReminder extends Reminder {
 	
 	@Override
 	public String getOccurrenceLabel() {
-		return InternationalisationUtils.getI18NString(RemindersConstants.WEEKENDS);
+		return InternationalisationUtils.getI18nString(RemindersConstants.WEEKENDS);
 	}
 	
 	@Override
