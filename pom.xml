@@ -42,11 +42,6 @@
 			<url>http://dev.frontlinesms.com/m2repo</url>
 		</repository>
 		<repository>
-			<id>cleone.net.repo</id>
-			<name>Temporary FrontlineSMS repository on cleone.net</name>
-			<url>http://m2repo.cleone.net</url>
-		</repository>
-		<repository>
 			<!-- Repository from the makers of Jetty -->
 			<id>codehaus-release-repo</id>
 			<name>Codehaus Release Repo</name>
